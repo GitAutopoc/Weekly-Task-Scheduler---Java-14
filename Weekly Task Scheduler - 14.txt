@@ -1,0 +1,57 @@
+Problem Statement: Weekly Task Scheduler with Dynamic Input
+Objective:
+Develop a Java application that allows a user to dynamically input tasks and their locations for each day of the week. The user should then be able to query the task details for a specific day, with the program handling potential incomplete data entries gracefully.
+
+Functional Requirements:
+
+Input Tasks and Locations:
+Function: inputTasksAndLocations()
+Description: This function prompts the user to input tasks and their corresponding locations for each day of the week. The tasks and locations are stored in parallel arrays.
+
+User Interaction:
+For each day of the week, from Monday to Sunday, prompt the user to input:
+A task description.
+An optional location (which can be left blank).
+
+Example Output:
+
+Task for Monday:
+[User inputs task]
+Location for Monday (leave blank if none):
+[User inputs location or leaves it blank]
+Select Day and Display Task:
+
+Function: main()
+Description: After collecting all tasks and locations, the function prompts the user to enter a number corresponding to a day of the week (1 for Monday, 7 for Sunday) to retrieve the scheduled task.
+User Interaction:
+Prompt the user to input a day number.
+Validate the input to ensure it is within the acceptable range (1-7). If not, print an error message and terminate.
+
+Example Input/Output:
+Enter a day number (1 for Monday to 7 for Sunday) to view the task:
+[User inputs day number]
+Invalid day. Please enter a number from 1 to 7.
+Display Task Details for the Selected Day:
+Function: displayTaskForDay(int day)
+Description: Retrieves and displays the task and location for the specified day. It handles cases where task data might be incomplete.
+Error Handling: If the task or location is missing, catch a NullPointerException and display an error message.
+Output:
+If the task and location data are complete, display both.
+If the location is blank, indicate no location specified.
+If an error occurs (such as a null task), print a custom error message.
+Example Output:
+yaml
+Copy code
+Task for Wednesday: Project Planning - Location: Conference Room 3
+Task for Tuesday: Team Meeting - No location specified
+Error: Task is null. No task or location provided for this day.
+Utility Functions:
+Function: getDayName(int day)
+Description: Returns the name of the day corresponding to the given number (1 for Monday, etc.).
+Function: getTaskForDay(int day)
+Description: Retrieves the task and location for the specified day. It throws a NullPointerException if the task is null or blank, which is caught and handled by displayTaskForDay.
+Expected Program Flow:
+
+The program starts by invoking inputTasksAndLocations() to collect all necessary data.
+The user is then prompted to choose a day to view the task.
+Based on the input, displayTaskForDay() is called to display the relevant task details or error messages.
